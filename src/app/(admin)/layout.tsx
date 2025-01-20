@@ -10,16 +10,20 @@ export default function AdminLayout({
 }) {
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full">
+      <div className="flex h-screen w-full overflow-hidden">
         <AppSidebar />
-        <main className="flex-1 overflow-auto">
-          <div className="w-full p-6">
-            <div className="mb-4">
-              <SidebarTrigger>
-                <ChevronLeft className="h-4 w-4" />
-              </SidebarTrigger>
+        <main className="flex-1 relative">
+          <div className="absolute inset-0">
+            <div className="h-full flex flex-col">
+              <div className="p-4">
+                <SidebarTrigger>
+                  <ChevronLeft className="h-4 w-4" />
+                </SidebarTrigger>
+              </div>
+              <div className="flex-1 px-4 pb-4">
+                {children}
+              </div>
             </div>
-            {children}
           </div>
         </main>
       </div>
